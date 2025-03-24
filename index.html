@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Henchmen Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      text-align: center;
+      padding: 2rem;
+    }
+    input, select, textarea {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      width: 300px;
+    }
+    .countdown {
+      font-size: 2rem;
+      color: crimson;
+      margin: 1rem 0;
+    }
+    .loyalty-button {
+      background: crimson;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>👁️ Henchmen Application</h1>
+  <p>Join our totally legitimate organization. Apply before... well, before it's too late.</p>
+
+  <div class="countdown" id="countdown"></div>
+
+  <form>
+    <input type="text" placeholder="Name or Alias" required><br>
+    <input type="text" placeholder="Preferred Evil Nickname"><br>
+    <select>
+      <option>Can you grow a mustache?</option>
+      <option>Yes</option>
+      <option>No</option>
+      <option>I am the mustache</option>
+    </select><br>
+    <textarea placeholder="Why do you want to hench for us?" rows="4"></textarea><br>
+    <input type="checkbox"> I swear fealty to my mysterious employer<br>
+    <button type="submit" class="loyalty-button">Swear Loyalty</button>
+  </form>
+
+  <p style="margin-top:3rem; font-size:0.9rem; color:#666;">
+    Side effects may include: betrayal, explosions, and minor inconveniences. Apply at your own risk.
+  </p>
+
+  <script>
+    // COUNTDOWN TIMER
+    const endDate = new Date("2025-04-01T00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "🕒 Time's up.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
