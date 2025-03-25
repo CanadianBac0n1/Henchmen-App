@@ -61,12 +61,13 @@
 </head>
 <body>
   <!-- Evil Orchestral Swell -->
-  <audio autoplay>
-    <source src="evil_swell.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg"></audio>
   <script>
-    const audio = document.querySelector("audio");
+    const audio = document.getElementById("swell");
     audio.volume = 0.2;
+    window.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
   </script>
 
   <header>
