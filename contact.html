@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact D.U.M.</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    nav {
+      margin: 2rem 0;
+    }
+    nav a {
+      color: crimson;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background: crimson;
+      color: white;
+      padding: 1rem;
+      border: none;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: darkred;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Evil Orchestral Swell -->
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
+  <script>
+    const audio = document.getElementById("swell");
+    audio.volume = 0.2;
+    window.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  </script>
+
+  <header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
+    <h1>Contact D.U.M.</h1>
+    <p>We'll pretend to get back to you.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="operations.html">Operations</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <form>
+    <label for="name">Name or Alias</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Disposable Email</label>
+    <input type="email" id="email" name="email">
+
+    <label for="message">Your Message (encrypted, optional)</label>
+    <textarea id="message" name="message" rows="6"></textarea>
+
+    <button type="submit">Transmit Message</button>
+  </form>
+
+  <p>Or send encrypted dispatches to: <strong>contact.dum.agency@protonmail.com</strong></p>
+
+  <footer>
+    &copy; 2025 D.U.M. This form may or may not route through a volcano.
+  </footer>
+</body>
+</html>
