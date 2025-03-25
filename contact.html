@@ -92,7 +92,7 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <form>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
     <label for="name">Name or Alias</label>
     <input type="text" id="name" name="name" required>
 
@@ -103,6 +103,8 @@
     <textarea id="message" name="message" rows="6"></textarea>
 
     <button type="submit">Transmit Message</button>
+    <input type="hidden" name="_subject" value="New Message from D.U.M. Contact Form">
+    <input type="hidden" name="_captcha" value="false">
   </form>
 
   <p>Or send encrypted dispatches to: <strong>contact.dum.agency@protonmail.com</strong></p>
