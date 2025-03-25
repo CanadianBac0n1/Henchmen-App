@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D.U.M. Operations</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    nav {
+      margin: 2rem 0;
+    }
+    nav a {
+      color: crimson;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .operations {
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: left;
+    }
+    .operations ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+    .operations li {
+      margin: 1rem 0;
+    }
+    .operations a {
+      color: #eee;
+      text-decoration: underline;
+    }
+    .operations a:hover {
+      color: crimson;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Evil Orchestral Swell -->
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
+  <script>
+    const audio = document.getElementById("swell");
+    audio.volume = 0.2;
+    window.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  </script>
+
+  <header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
+    <h1>D.U.M. Operations</h1>
+    <p>Highly Classified — Mildly Threatening</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="operations.html">Operations</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="operations">
+    <h2>Active & Archived Operations</h2>
+    <ul>
+      <li><a href="ops_operation-discomfort.html">Operation: Discomfort</a></li>
+      <li><a href="ops_static-sock.html">Operation: Static Sock</a></li>
+      <li><a href="ops_midnight-snack.html">Operation: Midnight Snack</a></li>
+      <li><a href="ops_redacted-retaliation.html">Operation: [REDACTED] Retaliation</a></li>
+      <li><a href="ops_doomscroll.html">Operation: Doomscroll</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 D.U.M. For internal eyes only.<br>
+    This page will self-destruct if printed.
+  </footer>
+</body>
+</html>
