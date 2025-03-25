@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Department of Unapologetic Mischief - Henchmen Wanted</title>
+  <title>Department of Unapologetic Mischief - Welcome</title>
   <style>
     body {
       background-color: #111;
@@ -20,47 +20,26 @@
     h1 {
       font-size: 2.5rem;
     }
-    form {
-      margin-top: 2rem;
+    nav {
+      margin: 2rem 0;
     }
-    input, select, textarea {
-      margin: 0.5rem;
-      padding: 0.5rem;
-      width: 300px;
-    }
-    .countdown {
-      font-size: 2rem;
+    nav a {
       color: crimson;
-      margin: 1rem 0;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .loyalty-button {
-      background: crimson;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border: none;
-      margin-top: 2rem;
-      cursor: pointer;
+    nav a:hover {
+      text-decoration: underline;
     }
-    .bio, .values, .mission, .quotes, .henchmen, .secret, .generator, .spotlight {
+    .intro, .mission, .values {
       max-width: 600px;
       margin: 2rem auto;
       text-align: left;
-      padding: 1rem;
     }
-    .values ul, .henchmen ul, .secret ul {
+    .values ul {
       list-style-type: square;
       padding-left: 1.5rem;
-    }
-    .quote-box {
-      background: #222;
-      padding: 1rem;
-      border-left: 4px solid crimson;
-      font-style: italic;
-    }
-    .konami {
-      display: none;
-      margin-top: 2rem;
     }
     footer {
       margin-top: 4rem;
@@ -82,20 +61,26 @@
 
   <header>
     <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura">
-    <h1>Henchmen Wanted</h1>
-    <p>Join the Department of Unapologetic Mischief. Help shape a darker tomorrow.</p>
+    <h1>Department of Unapologetic Mischief</h1>
+    <p>Forging the Future Through Elegant Evil</p>
   </header>
 
-  <div class="countdown" id="countdown"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="operations.html">Operations</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <section class="bio">
-    <h2>About Your Future Employer</h2>
-    <p><strong>Dr. Obscura</strong>, Executive Director of the Department of Unapologetic Mischief (D.U.M.), is a misunderstood innovator...</p>
+  <section class="intro">
+    <h2>Welcome to D.U.M.</h2>
+    <p>The Department of Unapologetic Mischief is the global leader in stylish subversion, tasteful mayhem, and moderately villainous consultancy services. We specialize in the unthinkable—and occasionally the inconvenient.</p>
   </section>
 
   <section class="mission">
     <h2>Our Mission</h2>
-    <p>To sow tasteful chaos, instigate mildly inconvenient mayhem, and push the boundaries of ethical ambiguity...</p>
+    <p>To build a better tomorrow by slightly ruining today. We balance chaos and charisma, and pride ourselves on innovation, ambiguity, and well-dressed disruption.</p>
   </section>
 
   <section class="values">
@@ -109,122 +94,10 @@
     </ul>
   </section>
 
-  <section class="quotes">
-    <h2>Daily Evil Quote</h2>
-    <div class="quote-box" id="evil-quote">"In progress..."</div>
-  </section>
-
-  <section class="henchmen">
-    <h2>Approved Henchmen</h2>
-    <ul>
-      <li>Brick Skull – Head of Heavy Lifting</li>
-      <li>Silent Janet – Chief Sneak Officer</li>
-      <li>The Flincher – Interrogation Consultant</li>
-      <li>Maskboy – Uniform Coordinator</li>
-      <li>Wheezy Gary – Explosives Intern</li>
-    </ul>
-  </section>
-
-  <section class="spotlight">
-    <h2>Henchman of the Month</h2>
-    <p><strong>Silent Janet</strong> – For successfully sneaking past three layers of security, two interns, and one very confused janitor.</p>
-  </section>
-
-  <section class="generator">
-    <h2>Evil Plan Generator</h2>
-    <button onclick="generatePlan()">Generate Plan</button>
-    <p id="plan"></p>
-  </section>
-
-  <section class="secret">
-    <h2>Top Secret Files</h2>
-    <ul>
-      <li>📁 REDACTED: Operation Discomfort</li>
-      <li>📁 REDACTED: Budget for Shark Tanks</li>
-      <li>📁 REDACTED: Villainous HR Guidelines</li>
-      <li>📁 REDACTED: Cookie Jar Surveillance Logs</li>
-    </ul>
-    <div class="konami" id="konami-link">
-      <a href="secret.html">Access Level 9 Clearance »</a>
-    </div>
-  </section>
-
-  <form>
-    <input type="text" placeholder="Name or Alias" required><br>
-    <input type="text" placeholder="Preferred Evil Nickname"><br>
-    <select>
-      <option disabled selected>Can you grow a mustache (regardless of gender)?</option>
-      <option>Yes</option>
-      <option>No</option>
-      <option>I am the mustache</option>
-    </select><br>
-    <textarea placeholder="Why do you want to hench for us?" rows="4"></textarea><br>
-    <input type="checkbox"> I swear fealty to my mysterious employer<br>
-    <button type="submit" class="loyalty-button">Swear Loyalty</button>
-  </form>
-
   <footer>
-    Department of Unapologetic Mischief (D.U.M.) — Proudly operating in the shadows.<br>
-    Application deadline: Before the hero finds us.
+    &copy; 2025 Department of Unapologetic Mischief. All schemes reserved.<br>
+    Not responsible for unintended consequences.
   </footer>
-
-  <!-- Evil Logic Scripts -->
-  <script>
-    const endDate = new Date("2025-04-01T00:00:00").getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = endDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "🕒 Time's up.";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-
-    const quotes = [
-      "Chaos is just another word for opportunity.",
-      "One person's nuisance is another's legacy.",
-      "Plans are optional. Style is mandatory.",
-      "If no one’s panicking, did you even launch it?",
-      "Behind every villain is an underpaid intern."
-    ];
-    document.getElementById("evil-quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
-
-    const plans = [
-      "Replace all town signs with vague riddles.",
-      "Deploy robot pigeons to disrupt lunch breaks.",
-      "Leak fake weather forecasts and ruin all picnics.",
-      "Launch Project Static Sock across all laundromats.",
-      "Temporarily rename the moon ‘Dave’."
-    ];
-    function generatePlan() {
-      document.getElementById("plan").innerText = plans[Math.floor(Math.random() * plans.length)];
-    }
-
-    // Konami Code Activation
-    const konamiCode = [38,38,40,40,37,39,37,39,66,65];
-    let konamiIndex = 0;
-    window.addEventListener("keydown", function(e) {
-      if (e.keyCode === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-          document.getElementById("konami-link").style.display = "block";
-          konamiIndex = 0;
-        }
-      } else {
-        konamiIndex = 0;
-      }
-    });
-  </script>
 </body>
 </html>
 
