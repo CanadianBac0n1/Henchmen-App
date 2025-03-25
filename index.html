@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Henchmen Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department of Unapologetic Mischief - Henchmen Wanted</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
+      background-color: #111;
       color: #eee;
+      font-family: Arial, sans-serif;
       text-align: center;
       padding: 2rem;
+    }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    form {
+      margin-top: 2rem;
     }
     input, select, textarea {
       margin: 0.5rem;
@@ -30,19 +42,69 @@
       margin-top: 2rem;
       cursor: pointer;
     }
+    .bio, .values, .mission {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: left;
+      padding: 1rem;
+    }
+    .values ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <h1>👁️ Henchmen Application</h1>
-  <p>Join our totally legitimate organization. Apply before... well, before it's too late.</p>
+  <!-- Evil Orchestral Swell -->
+  <audio autoplay>
+    <source src="evil_swell.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+  </script>
+
+  <header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura">
+    <h1>Henchmen Wanted</h1>
+    <p>Join the Department of Unapologetic Mischief. Help shape a darker tomorrow.</p>
+  </header>
 
   <div class="countdown" id="countdown"></div>
+
+  <section class="bio">
+    <h2>About Your Future Employer</h2>
+    <p><strong>Dr. Obscura</strong>, Executive Director of the Department of Unapologetic Mischief (D.U.M.), is a misunderstood innovator, wrongfully labeled as “dangerous,” “unhinged,” and “that guy again.”
+    After several mostly harmless schemes—including turning the town fountain into pudding—he now seeks reliable assistants
+    to help bring his vision to life. Applicants must be discreet, moderately competent, and cool with ambiguous ethics.</p>
+  </section>
+
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>To sow tasteful chaos, instigate mildly inconvenient mayhem, and push the boundaries of ethical ambiguity—all while looking sharp and filing the appropriate paperwork.</p>
+  </section>
+
+  <section class="values">
+    <h2>Core Values</h2>
+    <ul>
+      <li>Loyalty—until the inevitable betrayal</li>
+      <li>Secrecy—even from ourselves</li>
+      <li>Precision in pettiness</li>
+      <li>Compliance with non-disclosure agreements, mostly</li>
+      <li>World domination—but make it stylish</li>
+    </ul>
+  </section>
 
   <form>
     <input type="text" placeholder="Name or Alias" required><br>
     <input type="text" placeholder="Preferred Evil Nickname"><br>
     <select>
-      <option>Can you grow a mustache?</option>
+      <option disabled selected>Can you grow a mustache (regardless of gender)?</option>
       <option>Yes</option>
       <option>No</option>
       <option>I am the mustache</option>
@@ -52,14 +114,14 @@
     <button type="submit" class="loyalty-button">Swear Loyalty</button>
   </form>
 
-  <p style="margin-top:3rem; font-size:0.9rem; color:#666;">
-    Side effects may include: betrayal, explosions, and minor inconveniences. Apply at your own risk.
-  </p>
+  <footer>
+    Department of Unapologetic Mischief (D.U.M.) — Proudly operating in the shadows.<br>
+    Application deadline: Before the hero finds us.
+  </footer>
 
+  <!-- Countdown Timer Script -->
   <script>
-    // COUNTDOWN TIMER
     const endDate = new Date("2025-04-01T00:00:00").getTime();
-
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = endDate - now;
