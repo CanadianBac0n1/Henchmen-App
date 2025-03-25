@@ -42,13 +42,13 @@
       margin-top: 2rem;
       cursor: pointer;
     }
-    .bio, .values, .mission {
+    .bio, .values, .mission, .quotes, .henchmen {
       max-width: 600px;
       margin: 2rem auto;
       text-align: left;
       padding: 1rem;
     }
-    .values ul {
+    .values ul, .henchmen ul {
       list-style-type: square;
       padding-left: 1.5rem;
     }
@@ -56,6 +56,12 @@
       margin-top: 4rem;
       font-size: 0.9rem;
       color: #666;
+    }
+    .quote-box {
+      background: #222;
+      padding: 1rem;
+      border-left: 4px solid crimson;
+      font-style: italic;
     }
   </style>
 </head>
@@ -101,6 +107,22 @@
     </ul>
   </section>
 
+  <section class="quotes">
+    <h2>Daily Evil Quote</h2>
+    <div class="quote-box" id="evil-quote">"In progress..."</div>
+  </section>
+
+  <section class="henchmen">
+    <h2>Approved Henchmen</h2>
+    <ul>
+      <li>Brick Skull – Head of Heavy Lifting</li>
+      <li>Silent Janet – Chief Sneak Officer</li>
+      <li>The Flincher – Interrogation Consultant</li>
+      <li>Maskboy – Uniform Coordinator</li>
+      <li>Wheezy Gary – Explosives Intern</li>
+    </ul>
+  </section>
+
   <form>
     <input type="text" placeholder="Name or Alias" required><br>
     <input type="text" placeholder="Preferred Evil Nickname"><br>
@@ -141,6 +163,16 @@
       document.getElementById("countdown").innerHTML =
         `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
+
+    const quotes = [
+      "Chaos is just another word for opportunity.",
+      "One person's nuisance is another's legacy.",
+      "Plans are optional. Style is mandatory.",
+      "If no one’s panicking, did you even launch it?",
+      "Behind every villain is an underpaid intern."
+    ];
+    document.getElementById("evil-quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
   </script>
 </body>
 </html>
+
