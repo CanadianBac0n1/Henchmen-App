@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About D.U.M.</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    nav {
+      margin: 2rem 0;
+    }
+    nav a {
+      color: crimson;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Evil Orchestral Swell -->
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
+  <script>
+    const audio = document.getElementById("swell");
+    audio.volume = 0.2;
+    window.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  </script>
+
+  <header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
+    <h1>About D.U.M.</h1>
+    <p>Department of Unapologetic Mischief</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="operations.html">Operations</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="content">
+    <h2>Our Founder</h2>
+    <p><strong>Dr. Obscura</strong> founded the Department of Unapologetic Mischief in the shadows of bureaucracy and brilliance. Once dismissed as "just another eccentric genius with a penchant for lasers," Dr. Obscura's vision was clear: a stylish world where chaos thrives under well-documented procedure.</p>
+
+    <h2>Our Mission</h2>
+    <p>To sow tasteful chaos, instigate mildly inconvenient mayhem, and push the boundaries of ethical ambiguity—all while looking sharp and filing the appropriate paperwork.</p>
+
+    <h2>Our History</h2>
+    <p>Originally formed in a secret underground facility (under a less secret underground karaoke bar), D.U.M. quickly rose to notoriety thanks to its commitment to innovation, theatrical flair, and quarterly team-building hostage simulations.</p>
+
+    <h2>Leadership</h2>
+    <p>Dr. Obscura remains at the helm, supported by a team of experts in disinformation, trapdoor engineering, and emotionally manipulative villain monologues.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 D.U.M. Proudly operating in the shadows.<br>
+    This page self-destructs in 5... 4... (just kidding)
+  </footer>
+</body>
+</html>
