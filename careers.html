@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D.U.M. Careers - Henchmen Recruitment</title>
+  <title>D.U.M. Careers</title>
   <style>
     body {
       background-color: #111;
@@ -12,8 +12,25 @@
       text-align: center;
       padding: 2rem;
     }
+    header img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
     h1 {
       font-size: 2.5rem;
+    }
+    nav {
+      margin: 2rem 0;
+    }
+    nav a {
+      color: crimson;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     form, .spotlight, .generator {
       max-width: 600px;
@@ -53,8 +70,19 @@
     }, { once: true });
   </script>
 
-  <h1>Careers at the Department of Unapologetic Mischief</h1>
-  <p>Now hiring loyal minions, misguided geniuses, and morally flexible interns.</p>
+  <header>
+  <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo" style="width: 150px; border-radius: 50%; margin-bottom: 1rem;">
+  <h1>D.U.M.</h1>
+  <p>Forging the Future Through Elegant Evil</p>
+</header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="operations.html">Operations</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <section class="spotlight">
     <h2>Henchman of the Month</h2>
@@ -83,9 +111,8 @@
   </form>
 
   <footer>
-    Department of Unapologetic Mischief (D.U.M.) — Apply with caution.<br>
-    Your application may or may not be used against you.
-  </footer>
+    &copy; 2025 D.U.M. All schemes reserved.<br>
+Not responsible for unintended consequences.
 
   <script>
     const plans = [
@@ -99,5 +126,3 @@
       document.getElementById("plan").innerText = plans[Math.floor(Math.random() * plans.length)];
     }
   </script>
-</body>
-</html>
