@@ -98,3 +98,18 @@
     &copy; 2025 D.U.M. All schemes reserved.<br>
 Not responsible for unintended consequences.
 
+<script>
+// Konami Code unlock for secret.html
+const secretCode = [38,38,40,40,37,39,37,39,66,65];
+let inputBuffer = [];
+
+window.addEventListener('keydown', function(e) {
+  inputBuffer.push(e.keyCode);
+  if (inputBuffer.length > secretCode.length) inputBuffer.shift();
+  if (JSON.stringify(inputBuffer) === JSON.stringify(secretCode)) {
+    window.open('secret.html', '_blank');
+  }
+});
+</script>
+</body>
+</html>
