@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D.U.M. Careers & Recruitment</title>
+  <meta name="description" content="Explore open henchman roles, highly conditional benefits, and career opportunities with Dr. Obscuro's Department of Unapologetic Mischief.">
+  <link rel="canonical" href="https://canadianbac0n1.github.io/Henchmen-App/careers.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="D.U.M. Careers & Recruitment">
+  <meta property="og:description" content="Open henchman roles, highly conditional benefits, and career opportunities with Dr. Obscuro.">
+  <meta property="og:url" content="https://canadianbac0n1.github.io/Henchmen-App/careers.html">
+  <meta property="og:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="D.U.M. Careers & Recruitment">
+  <meta name="twitter:description" content="Your future in elegant evil begins here.">
+  <meta name="twitter:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
   <style>
     :root {
       --bg: #0f0f11;
@@ -166,38 +177,35 @@
       padding-top: 2rem;
     }
   </style>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- Evil Orchestral Swell -->
-  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
-  <script>
-    const audio = document.getElementById("swell");
-    audio.volume = 0.2;
-    window.addEventListener("click", () => {
-      audio.play().catch(() => {});
-    }, { once: true });
-  </script>
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" preload="none" loop></audio>
 
   <header>
-    <img src="Dr_Obscuro_Circular_Avatar.png" alt="Dr. Obscuro Logo">
+    <img src="Dr_Obscuro_Circular_Avatar.webp" alt="Dr. Obscuro emblem" width="140" height="140" decoding="async" fetchpriority="high">
     <h1>D.U.M. Careers</h1>
-    <p style="color: var(--muted);">Join Dr. Obscuro's Global Team of Elegant Mischief</p>
+    <p class="subtitle">Join Dr. Obscuro's Global Team of Elegant Mischief</p>
   </header>
 
-  <nav>
+  <nav aria-label="Primary navigation">
     <a href="index.html">Home</a>
-    <a href="careers.html" class="active">Careers</a>
+    <a href="careers.html" class="active" aria-current="page">Careers</a>
     <a href="about.html">About</a>
     <a href="operations.html">Operations</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="container">
+  <main class="container" id="main-content">
 
     <!-- Henchman of the Month -->
     <div class="spotlight">
-      <h3 style="color: var(--accent); margin-top: 0;">Henchman of the Month</h3>
+      <h2>Henchman of the Month</h2>
       <p><strong>Silent Janet</strong> – Awarded by Dr. Obscuro for successfully sneaking past three layers of superhero security, two interns, and one very confused janitor without breaking stealth.</p>
     </div>
 
@@ -206,25 +214,25 @@
     <div class="card-grid">
 
       <div class="card">
-        <div class="job-title">Junior Henchman (Entry Level)</div>
+        <h3 class="job-title">Junior Henchman (Entry Level)</h3>
         <div class="job-dept">Field Operations</div>
         <p>Must provide own matching jumpsuit. 3–5 years experience surviving collapsing volcanic lairs preferred. High tolerance for trapdoors and sudden dramatic monologues required.</p>
       </div>
 
       <div class="card">
-        <div class="job-title">Laser Calibration Specialist</div>
+        <h3 class="job-title">Laser Calibration Specialist</h3>
         <div class="job-dept">Lair Engineering</div>
         <p>Responsible for fine-tuning optical death rays. Must be comfortable monologuing or explaining Dr. Obscuro's master plan at an unnaturally slow pace while the hero slowly escapes.</p>
       </div>
 
       <div class="card">
-        <div class="job-title">Doomsday Device UI/UX Designer</div>
+        <h3 class="job-title">Doomsday Device UI/UX Designer</h3>
         <div class="job-dept">Product & Mischief</div>
         <p>Ensure all self-destruct buttons are red, oversized, labeled clearly in ALL-CAPS, and placed conveniently adjacent to the main lighting switch.</p>
       </div>
 
       <div class="card">
-        <div class="job-title">Volcanic Lair HVAC Technician</div>
+        <h3 class="job-title">Volcanic Lair HVAC Technician</h3>
         <div class="job-dept">Infrastructure</div>
         <p>Must balance ambient magma thermal heat with server room cooling requirements while maintaining peak acoustics for lair echo resonance.</p>
       </div>
@@ -235,22 +243,22 @@
     <h2 class="section-title">Benefits & Perks</h2>
     <div class="perks-grid">
       <div class="perk-box">
-        <div class="perk-icon">🩸</div>
+        <div class="perk-icon" aria-hidden="true">🩸</div>
         <strong>Hazard Coverage</strong>
         <p style="font-size: 0.85rem; color: var(--muted);">Full Medical, Dental, and Trap-Door Hazard Insurance.</p>
       </div>
       <div class="perk-box">
-        <div class="perk-icon">📈</div>
+        <div class="perk-icon" aria-hidden="true">📈</div>
         <strong>401(k) Matching</strong>
         <p style="font-size: 0.85rem; color: var(--muted);">Vests immediately upon boss's capture, fake death, or lair collapse.</p>
       </div>
       <div class="perk-box">
-        <div class="perk-icon">🌋</div>
+        <div class="perk-icon" aria-hidden="true">🌋</div>
         <strong>Volcanic Parking</strong>
         <p style="font-size: 0.85rem; color: var(--muted);">Subsidized subterranean parking & monogrammed henchman masks.</p>
       </div>
       <div class="perk-box">
-        <div class="perk-icon">☕</div>
+        <div class="perk-icon" aria-hidden="true">☕</div>
         <strong>Sub-Level 4 Espresso</strong>
         <p style="font-size: 0.85rem; color: var(--muted);">Unlimited dark roast coffee & evil pastry Fridays.</p>
       </div>
@@ -258,48 +266,50 @@
 
     <!-- Evil Plan Generator -->
     <div class="card" style="text-align: center; margin: 2rem 0;">
-      <h3 style="color: var(--accent); margin-top: 0;">Random Scheme Generator</h3>
-      <button onclick="generatePlan()" style="background: var(--accent); color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Generate Scheme</button>
-      <div id="plan" style="margin-top: 1rem; font-family: monospace; font-size: 1.1rem; color: #ffcc00; min-height: 1.5rem;"></div>
+      <h2>Random Scheme Generator</h2>
+      <button type="button" onclick="generatePlan()" style="background: var(--accent); color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Generate Scheme</button>
+      <div id="plan" role="status" aria-live="polite" style="margin-top: 1rem; font-family: monospace; font-size: 1.1rem; color: #ffcc00; min-height: 1.5rem;"></div>
     </div>
 
     <!-- Application Form -->
     <h2 class="section-title">Henchman Application</h2>
     <form onsubmit="handleApply(event)">
-      <label>Name or Alias</label>
-      <input type="text" placeholder="e.g. Henchman #42" required>
+      <p class="form-note">Training simulation only. Your application never leaves this device, which is more privacy than most villainous organizations provide.</p>
+      <label for="applicant-name">Name or Alias</label>
+      <input type="text" id="applicant-name" name="applicant-name" placeholder="e.g. Henchman #42" autocomplete="name" required>
 
-      <label>Preferred Evil Nickname</label>
-      <input type="text" placeholder="e.g. The Quiet Thunder">
+      <label for="evil-nickname">Preferred Evil Nickname</label>
+      <input type="text" id="evil-nickname" name="evil-nickname" placeholder="e.g. The Quiet Thunder">
 
-      <label>Mustache Status</label>
-      <select required>
+      <label for="mustache-status">Mustache Status</label>
+      <select id="mustache-status" name="mustache-status" required>
         <option value="" disabled selected>Can you grow a mustache (regardless of gender)?</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
         <option value="iam">I am the mustache</option>
       </select>
 
-      <label>Describe your evil laugh (in 50 words or less):</label>
-      <textarea rows="3" placeholder="e.g. A low baritone rumble followed by dramatic thunderstorm echoes..."></textarea>
+      <label for="evil-laugh">Describe your evil laugh (in 50 words or less)</label>
+      <textarea id="evil-laugh" name="evil-laugh" rows="3" maxlength="300" placeholder="e.g. A low baritone rumble followed by dramatic thunderstorm echoes..."></textarea>
 
       <label style="display: block; margin: 1rem 0;">
-        <input type="checkbox" id="heroCheck"> I confirm I am NOT affiliated with any superhero leagues, cape organizations, or undercover law enforcement.
+        <input type="checkbox" id="heroCheck" name="no-hero-affiliation"> I confirm I am NOT affiliated with any superhero leagues, cape organizations, or undercover law enforcement.
       </label>
 
       <label style="display: block; margin-bottom: 1.5rem;">
-        <input type="checkbox" required> I swear fealty to my mysterious employer (Dr. Obscuro)
+        <input type="checkbox" name="fealty" required> I swear fealty to my mysterious employer (Dr. Obscuro)
       </label>
 
       <button type="submit" class="loyalty-button">Swear Fealty & Submit Application</button>
-      <div id="formMsg" style="margin-top: 1rem; font-weight: bold;"></div>
+      <div id="formMsg" class="form-status" role="status" aria-live="polite"></div>
     </form>
 
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 D.U.M. All schemes reserved.<br>
+    &copy; <span data-current-year>2026</span> D.U.M. All schemes reserved.<br>
     Not responsible for accidental trapdoor triggers during interview process.
+    <br><button class="sound-toggle" type="button" data-sound-toggle aria-pressed="false">Enable lair ambience</button>
   </footer>
 
   <script>

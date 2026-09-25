@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #7f0019;
+  font-weight: 700;
+}
+
+:where(a):focus-visible {
+  outline: 3px solid #b00020;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+  }
+
+  .report {
+    padding: 1.25rem;
+  }
+}

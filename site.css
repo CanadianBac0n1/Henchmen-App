@@ -1,0 +1,262 @@
+:root {
+  color-scheme: dark;
+  --accent: #eb1748;
+  --accent-hover: #ff3f67;
+  --muted: #aaaab7;
+  --focus: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0f0f11;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(235, 23, 72, 0.55);
+}
+
+header {
+  margin-bottom: 0.75rem;
+}
+
+header img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin-inline: auto;
+  object-fit: cover;
+}
+
+header .subtitle {
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.25rem auto 2rem;
+  padding: 0.55rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+}
+
+nav a {
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background: rgba(235, 23, 72, 0.08);
+}
+
+nav a.active {
+  background: rgba(235, 23, 72, 0.12);
+}
+
+.hero-actions {
+  display: flex;
+  margin: 1.25rem auto 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0.7rem 1.15rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--accent-hover);
+  background: rgba(235, 23, 72, 0.12);
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--accent);
+}
+
+.button-primary:hover {
+  background: var(--accent-hover);
+}
+
+.card h2,
+.cackle-box h2,
+.spotlight h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.job-title {
+  margin-top: 0;
+}
+
+.email-card a {
+  color: var(--accent);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.card,
+.cackle-box,
+.spotlight,
+form {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.form-note {
+  margin: -0.5rem 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-status {
+  min-height: 1.6rem;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.sound-toggle {
+  width: auto;
+  margin-top: 1rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.op-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.sound-toggle:hover {
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  header img {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 0.65rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 2.45rem);
+    line-height: 1.15;
+  }
+
+  .tagline {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  header .subtitle {
+    margin: 0.4rem auto 0;
+    font-size: 0.92rem;
+  }
+
+  nav {
+    width: 100%;
+    margin-block: 1.25rem;
+    padding: 0.4rem;
+  }
+
+  nav a {
+    flex: 1 1 30%;
+    padding: 0.6rem 0.4rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  .button {
+    width: min(100%, 310px);
+  }
+
+  .counter-banner {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .card,
+  .cackle-box,
+  .spotlight,
+  form {
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

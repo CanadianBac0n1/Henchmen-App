@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact D.U.M. Dispatches</title>
+  <meta name="description" content="Send an encrypted-ish dispatch to Dr. Obscuro and the Department of Unapologetic Mischief.">
+  <link rel="canonical" href="https://canadianbac0n1.github.io/Henchmen-App/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact D.U.M. Dispatches">
+  <meta property="og:description" content="Send an encrypted-ish dispatch to Dr. Obscuro.">
+  <meta property="og:url" content="https://canadianbac0n1.github.io/Henchmen-App/contact.html">
+  <meta property="og:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact D.U.M. Dispatches">
+  <meta name="twitter:description" content="We'll pretend to get back to you.">
+  <meta name="twitter:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
   <style>
     :root {
       --bg: #0f0f11;
@@ -110,56 +121,55 @@
       padding-top: 2rem;
     }
   </style>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- Evil Orchestral Swell -->
-  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
-  <script>
-    const audio = document.getElementById("swell");
-    audio.volume = 0.2;
-    window.addEventListener("click", () => {
-      audio.play().catch(() => {});
-    }, { once: true });
-  </script>
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" preload="none" loop></audio>
 
   <header>
-    <img src="Dr_Obscuro_Circular_Avatar.png" alt="Dr. Obscuro Logo">
+    <img src="Dr_Obscuro_Circular_Avatar.webp" alt="Dr. Obscuro emblem" width="140" height="140" decoding="async" fetchpriority="high">
     <h1>Contact D.U.M.</h1>
-    <p style="color: var(--muted);">We'll pretend to get back to you.</p>
+    <p class="subtitle">We'll pretend to get back to you.</p>
   </header>
 
-  <nav>
+  <nav aria-label="Primary navigation">
     <a href="index.html">Home</a>
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
     <a href="operations.html">Operations</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html" class="active" aria-current="page">Contact</a>
   </nav>
 
-  <div class="container">
-    <form action="https://formspree.io/f/xqaplzka" method="POST">
+  <main class="container" id="main-content">
+    <form action="https://formspree.io/f/xqaplzka" method="POST" aria-describedby="dispatch-privacy">
+      <p class="form-note" id="dispatch-privacy">Dispatches are processed by Formspree and forwarded to D.U.M.'s Proton Mail inbox. Do not include passwords, access codes, or genuinely classified material.</p>
       <label for="name">Name or Villain Alias</label>
-      <input type="text" id="name" name="name" placeholder="e.g. Commander Chaos" required>
+      <input type="text" id="name" name="name" placeholder="e.g. Commander Chaos" autocomplete="name" required>
 
       <label for="email">Your Disposable Email</label>
-      <input type="email" id="email" name="email" placeholder="agent@obscuro.lair">
+      <input type="email" id="email" name="email" placeholder="agent@obscuro.lair" autocomplete="email" required>
 
-      <label for="message">Encrypted Dispatch (optional)</label>
-      <textarea id="message" name="message" rows="5" placeholder="State your grievance, extortion attempt, or catering request for Dr. Obscuro..."></textarea>
+      <label for="message">Encrypted Dispatch</label>
+      <textarea id="message" name="message" rows="5" placeholder="State your grievance, extortion attempt, or catering request for Dr. Obscuro..." required></textarea>
 
       <button type="submit">Transmit Encrypted Dispatch</button>
       <input type="hidden" name="_subject" value="New Message from D.U.M. Contact Form">
       <input type="hidden" name="_captcha" value="false">
     </form>
 
-    <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; text-align: center;">
-      Direct Encrypted ProtonMail: <strong style="color: var(--accent);">contact.dum.agency@protonmail.com</strong>
+    <div class="email-card" style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; text-align: center;">
+      Direct Encrypted ProtonMail: <a href="mailto:contact.dum.agency@protonmail.com">contact.dum.agency@protonmail.com</a>
     </div>
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 D.U.M. This form may or may not route directly through an active volcano.
+    &copy; <span data-current-year>2026</span> D.U.M. This form may or may not route directly through an active volcano.
+    <br><button class="sound-toggle" type="button" data-sound-toggle aria-pressed="false">Enable lair ambience</button>
   </footer>
 </body>
 </html>

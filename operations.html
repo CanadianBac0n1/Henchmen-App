@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D.U.M. Operations & Case Studies</title>
+  <meta name="description" content="Browse declassified D.U.M. field reports, operational briefs, and case studies in tastefully malicious project management.">
+  <link rel="canonical" href="https://canadianbac0n1.github.io/Henchmen-App/operations.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="D.U.M. Operations & Case Studies">
+  <meta property="og:description" content="Declassified reports in tasteful mayhem and impeccably managed inconvenience.">
+  <meta property="og:url" content="https://canadianbac0n1.github.io/Henchmen-App/operations.html">
+  <meta property="og:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="D.U.M. Operations & Case Studies">
+  <meta name="twitter:description" content="Highly classified. Tastefully malicious.">
+  <meta name="twitter:image" content="https://canadianbac0n1.github.io/Henchmen-App/og.png">
   <style>
     :root {
       --bg: #0f0f11;
@@ -104,34 +115,31 @@
       padding-top: 2rem;
     }
   </style>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- Evil Orchestral Swell -->
-  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
-  <script>
-    const audio = document.getElementById("swell");
-    audio.volume = 0.2;
-    window.addEventListener("click", () => {
-      audio.play().catch(() => {});
-    }, { once: true });
-  </script>
+  <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" preload="none" loop></audio>
 
   <header>
-    <img src="Dr_Obscuro_Circular_Avatar.png" alt="Dr. Obscuro Logo">
+    <img src="Dr_Obscuro_Circular_Avatar.webp" alt="Dr. Obscuro emblem" width="140" height="140" decoding="async" fetchpriority="high">
     <h1>D.U.M. Operations</h1>
-    <p style="color: var(--muted);">Highly Classified &bull; Tastefully Malicious &bull; Case Studies</p>
+    <p class="subtitle">Highly Classified &bull; Tastefully Malicious &bull; Case Studies</p>
   </header>
 
-  <nav>
+  <nav aria-label="Primary navigation">
     <a href="index.html">Home</a>
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
-    <a href="operations.html" class="active">Operations</a>
+    <a href="operations.html" class="active" aria-current="page">Operations</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="container">
+  <main class="container" id="main-content">
 
     <h2 style="color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">Case Studies & Field Reports</h2>
 
@@ -140,34 +148,38 @@
       <div class="card">
         <h3>Operation: Static Sock (SS-42)</h3>
         <p>Field deployment of D.U.M. proprietary polyester blend socks to carpeted office spaces under Dr. Obscuro's direction. Generated static charges exceeding socially acceptable limits, causing doorknob paranoia and touchscreen disruption.</p>
-        <a href="ops_static-sock.html" target="_blank" class="op-link">View Declassified Report &rarr;</a>
+        <a href="ops_static-sock.html" class="op-link">View Declassified Report &rarr;</a>
       </div>
 
       <div class="card">
         <h3>Shark Tank Optimization: With vs. Without Lasers?</h3>
         <p>A comprehensive ROI analysis on aquatic predator containment. Findings prove head-mounted laser arrays increase hero monologuing intimidation by 400% despite a 15% surge in Sub-Level 3 utility bills.</p>
-        <a href="ops_operation-discomfort.html" target="_blank" class="op-link">View Case Study &rarr;</a>
+        <a href="ops_operation-discomfort.html" class="op-link">View Case Study &rarr;</a>
       </div>
 
       <div class="card">
         <h3>Municipal Water Rerouting & Decorative Moat Construction</h3>
         <p>How D.U.M. civil engineers successfully diverted suburban municipal water mains to surround headquarters with a scenic, piranha-adjacent moat while blaming local construction delays.</p>
-        <a href="ops_redacted-retaliation.html" target="_blank" class="op-link">View Classified Dossier &rarr;</a>
+        <a href="ops_redacted-retaliation.html" class="op-link">View Classified Dossier &rarr;</a>
       </div>
 
       <div class="card">
         <h3>Operation: Doomscroll & Midnight Snack</h3>
         <p>Behavioral interventions designed to keep unsuspecting populations awake until 3:00 AM scrolling through vague social media drama and opening cold refrigerator doors.</p>
-        <a href="ops_doomscroll.html" target="_blank" class="op-link">View Operational Brief &rarr;</a>
+        <div class="op-actions">
+          <a href="ops_doomscroll.html" class="op-link">View Doomscroll Brief &rarr;</a>
+          <a href="ops_midnight-snack.html" class="op-link">View Midnight Snack Brief &rarr;</a>
+        </div>
       </div>
 
     </div>
 
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 D.U.M. For internal eyes only.<br>
+    &copy; <span data-current-year>2026</span> D.U.M. For internal eyes only.<br>
     This page will self-destruct if printed or saved to PDF.
+    <br><button class="sound-toggle" type="button" data-sound-toggle aria-pressed="false">Enable lair ambience</button>
   </footer>
 
   <script>
