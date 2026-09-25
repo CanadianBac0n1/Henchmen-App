@@ -3,114 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D.U.M. Operations</title>
+  <title>D.U.M. Operations & Case Studies</title>
   <style>
+    :root {
+      --bg: #0f0f11;
+      --card-bg: #1a1a1e;
+      --accent: #dc143c;
+      --accent-hover: #ff2a55;
+      --text: #e0e0e5;
+      --muted: #888894;
+      --border: #2a2a32;
+    }
     body {
-      background-color: #111;
-      color: #eee;
-      font-family: Arial, sans-serif;
-      padding: 2rem;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    header {
+      margin-bottom: 2rem;
     }
     header img {
-      width: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #fff;
     }
     nav {
       margin: 2rem 0;
+      background: var(--card-bg);
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
     }
     nav a {
-      color: crimson;
-      margin: 0 1rem;
+      color: var(--text);
+      margin: 0 1.2rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      color: var(--accent);
     }
-    .operations {
-      max-width: 700px;
-      margin: 2rem auto;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
       text-align: left;
     }
-    .operations ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
-    .operations li {
-      margin: 1rem 0;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
     }
-    .operations a {
-      color: #eee;
-      text-decoration: underline;
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
     }
-    .operations a:hover {
-      color: crimson;
+    .op-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: #fff;
+      background: #2a1418;
+      border: 1px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+    .op-link:hover {
+      background: var(--accent);
     }
     footer {
       margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <!-- Evil Orchestral Swell -->
   <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
   <script>
     const audio = document.getElementById("swell");
     audio.volume = 0.2;
     window.addEventListener("click", () => {
-      audio.play();
+      audio.play().catch(() => {});
     }, { once: true });
   </script>
 
   <header>
     <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
     <h1>D.U.M. Operations</h1>
-    <p>Highly Classified — Mildly Threatening</p>
+    <p style="color: var(--muted);">Highly Classified &bull; Tastefully Malicious &bull; Case Studies</p>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
-    <a href="operations.html">Operations</a>
+    <a href="operations.html" class="active">Operations</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section class="operations">
-    <h2>Active & Archived Operations</h2>
-    <ul>
-      <li><a href="ops_operation-discomfort.html" target="_blank">Operation: Discomfort</a></li>
-      <li><a href="ops_static-sock.html" target="_blank">Operation: Static Sock</a></li>
-      <li><a href="ops_midnight-snack.html" target="_blank">Operation: Midnight Snack</a></li>
-      <li><a href="ops_redacted-retaliation.html" target="_blank">Operation: [REDACTED] Retaliation</a></li>
-      <li><a href="ops_doomscroll.html" target="_blank">Operation: Doomscroll</a></li>
-    </ul>
-  </section>
+  <div class="container">
+
+    <h2 style="color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">Case Studies & Field Reports</h2>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>Operation: Static Sock (SS-42)</h3>
+        <p>Field deployment of D.U.M. proprietary polyester blend socks to carpeted office spaces. Generated static charges exceeding socially acceptable limits, causing doorknob paranoia and touchscreen disruption.</p>
+        <a href="ops_static-sock.html" target="_blank" class="op-link">View Declassified Report &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h3>Shark Tank Optimization: With vs. Without Lasers?</h3>
+        <p>A comprehensive ROI analysis on aquatic predator containment. Findings prove head-mounted laser arrays increase hero monologuing intimidation by 400% despite a 15% surge in Sub-Level 3 utility bills.</p>
+        <a href="ops_operation-discomfort.html" target="_blank" class="op-link">View Case Study &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h3>Municipal Water Rerouting & Decorative Moat Construction</h3>
+        <p>How D.U.M. civil engineers successfully diverted suburban municipal water mains to surround headquarters with a scenic, piranha-adjacent moat while blaming local construction delays.</p>
+        <a href="ops_redacted-retaliation.html" target="_blank" class="op-link">View Classified Dossier &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h3>Operation: Doomscroll & Midnight Snack</h3>
+        <p>Behavioral interventions designed to keep unsuspecting populations awake until 3:00 AM scrolling through vague social media drama and opening cold refrigerator doors.</p>
+        <a href="ops_doomscroll.html" target="_blank" class="op-link">View Operational Brief &rarr;</a>
+      </div>
+
+    </div>
+
+  </div>
 
   <footer>
     &copy; 2025 D.U.M. For internal eyes only.<br>
-    This page will self-destruct if printed.
+    This page will self-destruct if printed or saved to PDF.
   </footer>
 
   <script>
-// Konami Code unlock for secret.html
-const secretCode = [38,38,40,40,37,39,37,39,66,65];
-let inputBuffer = [];
+    // Konami Code unlock for secret.html
+    const secretCode = [38,38,40,40,37,39,37,39,66,65];
+    let inputBuffer = [];
 
-window.addEventListener('keydown', function(e) {
-  inputBuffer.push(e.keyCode);
-  if (inputBuffer.length > secretCode.length) inputBuffer.shift();
-  if (JSON.stringify(inputBuffer) === JSON.stringify(secretCode)) {
-    window.open('secret.html', '_blank');
-  }
-});
-</script>
+    window.addEventListener('keydown', function(e) {
+      inputBuffer.push(e.keyCode);
+      if (inputBuffer.length > secretCode.length) inputBuffer.shift();
+      if (JSON.stringify(inputBuffer) === JSON.stringify(secretCode)) {
+        window.open('secret.html', '_blank');
+      }
+    });
+  </script>
 </body>
 </html>

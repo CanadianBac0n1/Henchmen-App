@@ -3,126 +3,331 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D.U.M. Careers</title>
+  <title>D.U.M. Careers & Recruitment</title>
   <style>
+    :root {
+      --bg: #0f0f11;
+      --card-bg: #1a1a1e;
+      --accent: #dc143c;
+      --accent-hover: #ff2a55;
+      --text: #e0e0e5;
+      --muted: #888894;
+      --border: #2a2a32;
+    }
     body {
-      background-color: #111;
-      color: #eee;
-      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      padding: 2rem;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    header {
+      margin-bottom: 2rem;
     }
     header img {
-      width: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #fff;
     }
     nav {
       margin: 2rem 0;
+      background: var(--card-bg);
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
     }
     nav a {
-      color: crimson;
-      margin: 0 1rem;
+      color: var(--text);
+      margin: 0 1.2rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      color: var(--accent);
     }
-    form, .spotlight, .generator {
-      max-width: 600px;
-      margin: 2rem auto;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
       text-align: left;
     }
-    input, select, textarea {
-      margin: 0.5rem;
-      padding: 0.5rem;
+    .section-title {
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .job-dept {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .perk-box {
+      background: #141417;
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .perk-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    input[type="text"], input[type="email"], select, textarea {
       width: 100%;
+      background: #111114;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
     }
     .loyalty-button {
-      background: crimson;
+      background: var(--accent);
       color: white;
       padding: 1rem 2rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
       border: none;
-      margin-top: 2rem;
+      border-radius: 6px;
       cursor: pointer;
       width: 100%;
+      transition: background 0.2s ease;
+    }
+    .loyalty-button:hover {
+      background: var(--accent-hover);
+    }
+    .spotlight {
+      background: linear-gradient(135deg, #1f1418 0%, #1a1a1e 100%);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 2rem 0;
     }
     footer {
       margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <!-- Evil Orchestral Swell -->
   <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
   <script>
     const audio = document.getElementById("swell");
     audio.volume = 0.2;
     window.addEventListener("click", () => {
-      audio.play();
+      audio.play().catch(() => {});
     }, { once: true });
   </script>
 
   <header>
-  <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo" style="width: 150px; border-radius: 50%; margin-bottom: 1rem;">
-  <h1>D.U.M.</h1>
-  <p>Forging the Future Through Elegant Evil</p>
-</header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
+    <h1>D.U.M. Careers</h1>
+    <p style="color: var(--muted);">Join the Global Leader in Stylish Subversion</p>
+  </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="careers.html">Careers</a>
+    <a href="careers.html" class="active">Careers</a>
     <a href="about.html">About</a>
     <a href="operations.html">Operations</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section class="spotlight">
-    <h2>Henchman of the Month</h2>
-    <p><strong>Silent Janet</strong> – For successfully sneaking past three layers of security, two interns, and one very confused janitor.</p>
-  </section>
+  <div class="container">
 
-  <section class="generator">
-    <h2>Evil Plan Generator</h2>
-    <button onclick="generatePlan()">Generate Plan</button>
-    <p id="plan"></p>
-  </section>
+    <!-- Henchman of the Month -->
+    <div class="spotlight">
+      <h3 style="color: var(--accent); margin-top: 0;">Henchman of the Month</h3>
+      <p><strong>Silent Janet</strong> – Awarded for successfully sneaking past three layers of superhero security, two interns, and one very confused janitor without breaking stealth.</p>
+    </div>
 
-  <form>
-    <h2>Apply Now</h2>
-    <input type="text" placeholder="Name or Alias" required><br>
-    <input type="text" placeholder="Preferred Evil Nickname"><br>
-    <select>
-      <option disabled selected>Can you grow a mustache (regardless of gender)?</option>
-      <option>Yes</option>
-      <option>No</option>
-      <option>I am the mustache</option>
-    </select><br>
-    <textarea placeholder="Why do you want to hench for us?" rows="4"></textarea><br>
-    <input type="checkbox"> I swear fealty to my mysterious employer<br>
-    <button type="submit" class="loyalty-button">Swear Loyalty</button>
-  </form>
+    <!-- Job Postings -->
+    <h2 class="section-title">Open Positions</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="job-title">Junior Henchman (Entry Level)</div>
+        <div class="job-dept">Field Operations</div>
+        <p>Must provide own matching jumpsuit. 3–5 years experience surviving collapsing volcanic lairs preferred. High tolerance for trapdoors and sudden dramatic monologues required.</p>
+      </div>
+
+      <div class="card">
+        <div class="job-title">Laser Calibration Specialist</div>
+        <div class="job-dept">Lair Engineering</div>
+        <p>Responsible for fine-tuning optical death rays. Must be comfortable monologuing or explaining the master plan at an unnaturally slow pace while the hero slowly escapes.</p>
+      </div>
+
+      <div class="card">
+        <div class="job-title">Doomsday Device UI/UX Designer</div>
+        <div class="job-dept">Product & Mischief</div>
+        <p>Ensure all self-destruct buttons are red, oversized, labeled clearly in ALL-CAPS, and placed conveniently adjacent to the main lighting switch.</p>
+      </div>
+
+      <div class="card">
+        <div class="job-title">Volcanic Lair HVAC Technician</div>
+        <div class="job-dept">Infrastructure</div>
+        <p>Must balance ambient magma thermal heat with server room cooling requirements while maintaining peak acoustics for lair echo resonance.</p>
+      </div>
+
+    </div>
+
+    <!-- Benefits & Perks -->
+    <h2 class="section-title">Benefits & Perks</h2>
+    <div class="perks-grid">
+      <div class="perk-box">
+        <div class="perk-icon">🩸</div>
+        <strong>Hazard Coverage</strong>
+        <p style="font-size: 0.85rem; color: var(--muted);">Full Medical, Dental, and Trap-Door Hazard Insurance.</p>
+      </div>
+      <div class="perk-box">
+        <div class="perk-icon">📈</div>
+        <strong>401(k) Matching</strong>
+        <p style="font-size: 0.85rem; color: var(--muted);">Vests immediately upon boss's capture, fake death, or lair collapse.</p>
+      </div>
+      <div class="perk-box">
+        <div class="perk-icon">🌋</div>
+        <strong>Volcanic Parking</strong>
+        <p style="font-size: 0.85rem; color: var(--muted);">Subsidized subterranean parking & monogrammed henchman masks.</p>
+      </div>
+      <div class="perk-box">
+        <div class="perk-icon">☕</div>
+        <strong>Sub-Level 4 Espresso</strong>
+        <p style="font-size: 0.85rem; color: var(--muted);">Unlimited dark roast coffee & evil pastry Fridays.</p>
+      </div>
+    </div>
+
+    <!-- Evil Plan Generator -->
+    <div class="card" style="text-align: center; margin: 2rem 0;">
+      <h3 style="color: var(--accent); margin-top: 0;">Random Scheme Generator</h3>
+      <button onclick="generatePlan()" style="background: var(--accent); color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer;">Generate Scheme</button>
+      <div id="plan" style="margin-top: 1rem; font-family: monospace; font-size: 1.1rem; color: #ffcc00; min-height: 1.5rem;"></div>
+    </div>
+
+    <!-- Application Form -->
+    <h2 class="section-title">Henchman Application</h2>
+    <form onsubmit="handleApply(event)">
+      <label>Name or Alias</label>
+      <input type="text" placeholder="e.g. Henchman #42" required>
+
+      <label>Preferred Evil Nickname</label>
+      <input type="text" placeholder="e.g. The Quiet Thunder">
+
+      <label>Mustache Status</label>
+      <select required>
+        <option value="" disabled selected>Can you grow a mustache (regardless of gender)?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+        <option value="iam">I am the mustache</option>
+      </select>
+
+      <label>Describe your evil laugh (in 50 words or less):</label>
+      <textarea rows="3" placeholder="e.g. A low baritone rumble followed by dramatic thunderstorm echoes..."></textarea>
+
+      <label style="display: block; margin: 1rem 0;">
+        <input type="checkbox" id="heroCheck"> I confirm I am NOT affiliated with any superhero leagues, cape organizations, or undercover law enforcement.
+      </label>
+
+      <label style="display: block; margin-bottom: 1.5rem;">
+        <input type="checkbox" required> I swear fealty to my mysterious employer (D.U.M.)
+      </label>
+
+      <button type="submit" class="loyalty-button">Swear Fealty & Submit Application</button>
+      <div id="formMsg" style="margin-top: 1rem; font-weight: bold;"></div>
+    </form>
+
+  </div>
 
   <footer>
     &copy; 2025 D.U.M. All schemes reserved.<br>
-Not responsible for unintended consequences.
+    Not responsible for accidental trapdoor triggers during interview process.
+  </footer>
 
   <script>
     const plans = [
-      "Replace all town signs with vague riddles.",
-      "Deploy robot pigeons to disrupt lunch breaks.",
-      "Leak fake weather forecasts and ruin all picnics.",
+      "Replace all city signs with vague, philosophical riddles.",
+      "Deploy robot pigeons to disrupt patio lunch breaks.",
+      "Leak fake weekend weather forecasts to ruin all picnics.",
       "Launch Project Static Sock across all laundromats.",
+      "Reroute the municipal water supply to build a decorative moat.",
       "Temporarily rename the moon ‘Dave’."
     ];
+
     function generatePlan() {
       document.getElementById("plan").innerText = plans[Math.floor(Math.random() * plans.length)];
     }
+
+    function handleApply(e) {
+      e.preventDefault();
+      const heroCheck = document.getElementById('heroCheck').checked;
+      const msgEl = document.getElementById('formMsg');
+      if (!heroCheck) {
+        msgEl.style.color = '#ff4444';
+        msgEl.innerText = "APPLICATION REJECTED: Potential Superhero affiliation detected! Security has been alerted to your IP.";
+      } else {
+        msgEl.style.color = '#55ff55';
+        msgEl.innerText = "FEALTY ACCEPTED! Please report to Sub-Level 2 for jumpsuit sizing and trapdoor orientation.";
+      }
+    }
   </script>
+</body>
+</html>

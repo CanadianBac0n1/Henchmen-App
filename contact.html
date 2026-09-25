@@ -3,85 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact D.U.M.</title>
+  <title>Contact D.U.M. Dispatches</title>
   <style>
+    :root {
+      --bg: #0f0f11;
+      --card-bg: #1a1a1e;
+      --accent: #dc143c;
+      --accent-hover: #ff2a55;
+      --text: #e0e0e5;
+      --muted: #888894;
+      --border: #2a2a32;
+    }
     body {
-      background-color: #111;
-      color: #eee;
-      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      padding: 2rem;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    header {
+      margin-bottom: 2rem;
     }
     header img {
-      width: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin: 0;
+      color: #fff;
     }
     nav {
       margin: 2rem 0;
+      background: var(--card-bg);
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
     }
     nav a {
-      color: crimson;
-      margin: 0 1rem;
+      color: var(--text);
+      margin: 0 1.2rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      color: var(--accent);
     }
-    form {
-      max-width: 600px;
-      margin: 2rem auto;
+    .container {
+      max-width: 650px;
+      margin: 0 auto;
       text-align: left;
     }
-    input, textarea {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
+    form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
     }
-    textarea {
-      resize: vertical;
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      background: #111114;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
     }
     button {
-      background: crimson;
+      background: var(--accent);
       color: white;
-      padding: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
       border: none;
-      width: 100%;
-      font-size: 1rem;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 5px;
+      width: 100%;
+      transition: background 0.2s ease;
     }
     button:hover {
-      background: darkred;
+      background: var(--accent-hover);
     }
     footer {
       margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <!-- Evil Orchestral Swell -->
   <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
   <script>
     const audio = document.getElementById("swell");
     audio.volume = 0.2;
     window.addEventListener("click", () => {
-      audio.play();
+      audio.play().catch(() => {});
     }, { once: true });
   </script>
 
   <header>
     <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
     <h1>Contact D.U.M.</h1>
-    <p>We'll pretend to get back to you.</p>
+    <p style="color: var(--muted);">We'll pretend to get back to you.</p>
   </header>
 
   <nav>
@@ -89,29 +134,32 @@
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
     <a href="operations.html">Operations</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </nav>
 
-  <form action="https://formspree.io/f/xqaplzka" method="POST">
-    <label for="name">Name or Alias</label>
-    <input type="text" id="name" name="name" required>
+  <div class="container">
+    <form action="https://formspree.io/f/xqaplzka" method="POST">
+      <label for="name">Name or Villain Alias</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Commander Chaos" required>
 
-    <label for="email">Your Disposable Email</label>
-    <input type="email" id="email" name="email">
+      <label for="email">Your Disposable Email</label>
+      <input type="email" id="email" name="email" placeholder="agent@obscuro.lair">
 
-    <label for="message">Your Message (encrypted, optional)</label>
-    <textarea id="message" name="message" rows="6"></textarea>
+      <label for="message">Encrypted Dispatch (optional)</label>
+      <textarea id="message" name="message" rows="5" placeholder="State your grievance, extortion attempt, or catering request..."></textarea>
 
-    <button type="submit">Transmit Message</button>
-    <input type="hidden" name="_subject" value="New Message from D.U.M. Contact Form">
-    <input type="hidden" name="_captcha" value="false">
-  </form>
+      <button type="submit">Transmit Encrypted Dispatch</button>
+      <input type="hidden" name="_subject" value="New Message from D.U.M. Contact Form">
+      <input type="hidden" name="_captcha" value="false">
+    </form>
 
-  <p>Or send encrypted dispatches to: <strong>contact.dum.agency@protonmail.com</strong></p>
+    <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; text-align: center;">
+      Direct Encrypted ProtonMail: <strong style="color: var(--accent);">contact.dum.agency@protonmail.com</strong>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2025 D.U.M. This form may or may not route through a volcano.
+    &copy; 2025 D.U.M. This form may or may not route directly through an active volcano.
   </footer>
 </body>
 </html>
-

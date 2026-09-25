@@ -3,113 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D.U.M. - Welcome</title>
+  <title>D.U.M. - Department of Unapologetic Mischief</title>
   <style>
+    :root {
+      --bg: #0f0f11;
+      --card-bg: #1a1a1e;
+      --accent: #dc143c;
+      --accent-hover: #ff2a55;
+      --text: #e0e0e5;
+      --muted: #888894;
+      --border: #2a2a32;
+    }
     body {
-      background-color: #111;
-      color: #eee;
-      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      padding: 2rem;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    header {
+      margin-bottom: 2rem;
     }
     header img {
-      width: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.05) rotate(3deg);
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+    }
+    .tagline {
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
     nav {
       margin: 2rem 0;
+      background: var(--card-bg);
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
     }
     nav a {
-      color: crimson;
-      margin: 0 1rem;
+      color: var(--text);
+      margin: 0 1.2rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: color 0.2s ease;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      color: var(--accent);
     }
-    .intro, .mission, .values {
-      max-width: 600px;
-      margin: 2rem auto;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
       text-align: left;
     }
-    .values ul {
+    .counter-banner {
+      background: linear-gradient(135deg, #2b080e 0%, #1a1a1e 100%);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .counter-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
+      font-family: monospace;
+      margin: 0.5rem 0;
+    }
+    .counter-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--accent);
+    }
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .card ul {
       list-style-type: square;
-      padding-left: 1.5rem;
+      padding-left: 1.2rem;
+    }
+    .cackle-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .cackle-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+    .cackle-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .cackle-output {
+      font-family: monospace;
+      font-size: 1.3rem;
+      color: #55ff55;
+      margin-top: 1rem;
+      min-height: 1.8rem;
     }
     footer {
       margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <!-- Evil Orchestral Swell -->
   <audio id="swell" src="evil_swell.mp3" type="audio/mpeg" loop></audio>
   <script>
     const audio = document.getElementById("swell");
     audio.volume = 0.2;
     window.addEventListener("click", () => {
-      audio.play();
+      audio.play().catch(() => {});
     }, { once: true });
   </script>
 
   <header>
-  <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo" style="width: 150px; border-radius: 50%; margin-bottom: 1rem;">
-  <h1>D.U.M.</h1>
-  <p>Forging the Future Through Elegant Evil</p>
-</header>
+    <img src="Dr_Obscura_Circular_Avatar.png" alt="Dr. Obscura Logo">
+    <h1>D.U.M.</h1>
+    <div class="tagline">Forging the Future Through Elegant Evil</div>
+    <p style="color: var(--muted);">Department of Unapologetic Mischief &bull; Global Headquarters</p>
+  </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
     <a href="operations.html">Operations</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section class="intro">
-    <h2>Welcome to D.U.M.</h2>
-    <p>The Department of Unapologetic Mischief is the global leader in stylish subversion, tasteful mayhem, and moderately villainous consultancy services. We specialize in the unthinkable—and occasionally the inconvenient.</p>
-  </section>
+  <div class="container">
 
-  <section class="mission">
-    <h2>Our Mission</h2>
-    <p>To build a better tomorrow by slightly ruining today. We balance chaos and charisma, and pride ourselves on innovation, ambiguity, and well-dressed disruption.</p>
-  </section>
+    <!-- Days Since Last Hero Infiltration Counter -->
+    <div class="counter-banner">
+      <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #fff;">Days Since Last Hero Infiltration</div>
+      <div class="counter-number">0</div>
+      <div class="counter-sub">Reset 14 minutes ago due to an unauthorized skylight entry at Sub-Level 3. Guard dogs have been dispatched.</div>
+    </div>
 
-  <section class="values">
-    <h2>Core Values</h2>
-    <ul>
-      <li>Loyalty—until the inevitable betrayal</li>
-      <li>Secrecy—even from ourselves</li>
-      <li>Precision in pettiness</li>
-      <li>Compliance with non-disclosure agreements, mostly</li>
-      <li>World domination—but make it stylish</li>
-    </ul>
-  </section>
+    <!-- Intro & Mission -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>Welcome to D.U.M.</h3>
+        <p>The Department of Unapologetic Mischief is the global leader in stylish subversion, tasteful mayhem, and moderately villainous consultancy services. We specialize in the unthinkable—and occasionally the inconvenient.</p>
+      </div>
+
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>To build a better tomorrow by slightly ruining today. We balance chaos and charisma, and pride ourselves on innovation, ambiguity, well-dressed disruption, and flawless monologuing.</p>
+      </div>
+    </div>
+
+    <!-- Core Values -->
+    <div class="card">
+      <h3>Core Values</h3>
+      <ul>
+        <li><strong>Loyalty</strong>—until the inevitable betrayal</li>
+        <li><strong>Secrecy</strong>—even from ourselves</li>
+        <li><strong>Precision in pettiness</strong></li>
+        <li><strong>Compliance</strong> with non-disclosure agreements, mostly</li>
+        <li><strong>World domination</strong>—but make it stylish</li>
+      </ul>
+    </div>
+
+    <!-- Interactive Evil Cackle Soundboard -->
+    <div class="cackle-box">
+      <h3 style="color: var(--accent); margin-top: 0;">Interactive Evil Cackle Synthesizer</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">Test your villainous acoustic projection before mandatory performance reviews.</p>
+      <button class="cackle-btn" onclick="triggerCackle()">Synthesize Cackle</button>
+      <div class="cackle-output" id="cackleText"></div>
+    </div>
+
+  </div>
 
   <footer>
     &copy; 2025 D.U.M. All schemes reserved.<br>
-Not responsible for unintended consequences.
+    Not responsible for unintended consequences, laser misalignment, or static discharge.<br>
+    <span style="font-size: 0.75rem; color: #444;">Tip: The Konami Code is active on this terminal.</span>
+  </footer>
 
-<script>
-// Konami Code unlock for secret.html
-const secretCode = [38,38,40,40,37,39,37,39,66,65];
-let inputBuffer = [];
+  <script>
+    const cackles = [
+      "MWAHAHAHA... *cough* ...AHEM! MWAHAHAHA!",
+      "Heh... heheh... BUAHAHAHAHAHAHAHA!",
+      "Fools! They laughed at my static socks! WHO IS LAUGHING NOW?!",
+      "BWAHAHAHAHA! (Subterranean reverb at 104dB)",
+      "Muahaha... *slow applause* ...Muahahahaha!"
+    ];
 
-window.addEventListener('keydown', function(e) {
-  inputBuffer.push(e.keyCode);
-  if (inputBuffer.length > secretCode.length) inputBuffer.shift();
-  if (JSON.stringify(inputBuffer) === JSON.stringify(secretCode)) {
-    window.open('secret.html', '_blank');
-  }
-});
-</script>
+    function triggerCackle() {
+      const textEl = document.getElementById('cackleText');
+      const randomCackle = cackles[Math.floor(Math.random() * cackles.length)];
+      textEl.innerText = randomCackle;
+    }
+
+    // Konami Code unlock for secret.html
+    const secretCode = [38,38,40,40,37,39,37,39,66,65];
+    let inputBuffer = [];
+
+    window.addEventListener('keydown', function(e) {
+      inputBuffer.push(e.keyCode);
+      if (inputBuffer.length > secretCode.length) inputBuffer.shift();
+      if (JSON.stringify(inputBuffer) === JSON.stringify(secretCode)) {
+        window.open('secret.html', '_blank');
+      }
+    });
+  </script>
 </body>
 </html>
